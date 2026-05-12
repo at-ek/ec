@@ -1,0 +1,48 @@
+.cart-product, .cart-confirm {
+  font-size: 14px;
+}
+
+.cart-product h3, .cart-confirm h3 {
+  font-size: 20px;
+}
+
+.cart-product label {
+  background: none;
+}
+
+.buy, .agree, .prev  {
+  width: 9em;
+  padding: 4px 8px;
+  font-weight: bold;
+}
+
+.buy {
+  background: var(--yellow);
+}
+
+.agree {
+  background: var(--yellow);
+}
+
+.prev {
+  background: var(--green);
+}
+
+.cart-product .cart-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-product .icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text);
+}
+
+.cart-product .trash .icon{
+  width: 24px;
+  height: 24px;
+  color: var(--red);
+}

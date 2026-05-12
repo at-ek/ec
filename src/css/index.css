@@ -1,0 +1,133 @@
+:root {
+  --text: #262626;
+  --bg: #ffffff;
+  --gray: #e6e6e6;
+  --sub-gray: #d6d6d6;
+  --red: #d32f2f;
+  --blue: #1976d2;
+  --yellow: #fbc02d;
+  --green: #388e3c;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+input {
+  display: block;
+  border: 1px solid var(--text);
+}
+
+button {
+  display: block;
+  background: none;
+  border: none;
+}
+
+.icon-containar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon-containar label {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.login {
+  background: var(--yellow);
+}
+
+.create {
+  background: var(--green);
+}
+
+.logout {
+  background: var(--red);
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 104px;
+  background: #f6f6f6;
+}
+
+header .logo{
+  height: 64px;
+}
+
+header .logo img {
+  width: auto;
+  height: 100%;
+}
+
+
+header .hamb {
+  width: 100%;
+  padding: 8px 0;
+  background: #262626;
+}
+
+header .hamb .icon {
+  color: var(--bg);
+  border: 1px solid var(--bg);
+}
+
+main {
+  min-height: 100dvh;
+  padding: 128px 24px 40px;
+  position: relative;
+}
+
+footer {
+  padding: 40px 0;
+  text-align: center;
+  background: var(--gray);
+}
+
+footer p {
+  line-height: 3;
+  color: var(--bg);
+  background: var(--text);
+}

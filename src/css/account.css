@@ -1,0 +1,32 @@
+.login-form, .create-form {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+.login-form li,
+.create-form li{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.login-form li,
+.create-form li{
+  margin-bottom: 24px;
+}
+
+.login-form button {
+  margin: 0 auto;
+}
+
+.create-form button {
+  width: 9em;
+  margin: 0 auto;
+  padding: 4px 8px;
+  font-weight: bold;
+  background: var(--blue);
+}
+
+.notice {
+  color: var(--red);
+}
