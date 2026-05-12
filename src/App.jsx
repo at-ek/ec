@@ -252,7 +252,7 @@ const App = () => {
           setCurrentPage('contents');
           setToggleNav(false);
           }}>
-          <h1 className="logo"><img src='../public/logo.png'></img></h1>
+          <h1 className="logo"><img src='/logo.png' alt="logo" /></h1>
         </button>
 
         <button
