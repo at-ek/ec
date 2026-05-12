@@ -10,7 +10,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
 
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <ul className='modal-item'>
-          <li className='item-img'><img src={`../public/products/${selectedProduct?.src}`}></img></li>
+          <li className='item-img'><img src={`/products/${selectedProduct?.src}`}></img></li>
           {/* <li className='item-img-list'></li> */}
           <li className='item-name'>{selectedProduct?.name}</li>
           <li className='item-price'>¥{selectedProduct?.price}<label>(※税抜き)</label></li>

@@ -31,7 +31,7 @@ const Contents = ({ filteredProducts, selectedTags, handleResetTags, handleOpenM
                 handleOpenModal(pro)
               }}>
                 <li className="item-img">
-                  <img src={`../public/products/${pro.src}`} alt={pro.name} />
+                  <img src={`/products/${pro.src}`} alt={pro.name} />
                 </li>
                 <li className="item-name">
                   <h4>{pro.name}</h4>
