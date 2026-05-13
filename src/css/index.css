@@ -19,8 +19,17 @@
 
 body {
   position: relative;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0.04em;
   font-size: 14px;
   line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", "Noto Sans JP", sans-serif;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 ul {
