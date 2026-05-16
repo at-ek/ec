@@ -37,7 +37,7 @@ const Login = ({loginForm, setLoginForm, handleLogin, setCurrentPage}) => {
           <li>
             <button 
               type='button'
-              className='login'
+              className='login btn'
               onClick={() => handleLogin({
                 aid: loginForm.aid,
                 pass: loginForm.pass
@@ -47,7 +47,7 @@ const Login = ({loginForm, setLoginForm, handleLogin, setCurrentPage}) => {
           </li>
         </ul>
         
-      <button className='create' type="button" onClick={() => setCurrentPage('create')}>アカウント作成</button>
+      <button className='create btn' type="button" onClick={() => setCurrentPage('create')}>アカウント作成</button>
       </form>
     </>
   )

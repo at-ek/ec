@@ -9,11 +9,18 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
         <section className="cart-product">
           <h3>商品</h3>
 
+          <div className="product-table">
+            <dl>
+              <dt className="name">商品</dt>
+              <dt className="price">金額</dt>
+              <dt className="count">数量</dt>
+            </dl>
+          </div>
           {cart.map(pro => (
             <ul key={pro.id}>
-              <li>{pro.name}</li>
-              <li>{pro.price}円</li>
-              <li className="cart-buttons">
+              <li className="name">{pro.name}</li>
+              <li className="price">{pro.price * 1.1}円</li>
+              <li className="count cart-buttons">
                 <button className='minus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'decrease')}>
                   <FaMinus className="icon" />
                 </button>
@@ -31,13 +38,13 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
             </ul>
           ))}
 
-          <p>
+          <h4>
             <label>合計金額</label>
             {currentCartAmount}
             円
-          </p>
+          </h4>
 
-          <button className='buy' onClick={() => setIsConfirming(true)}>
+          <button className='buy btn' onClick={() => setIsConfirming(true)}>
             購入する
           </button>
         </section>
@@ -45,31 +52,42 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
         <section className="cart-confirm">
           <h3>購入確認</h3>
 
+          <div className="confirm-table">
+            <dl>
+              <dt className="name">商品</dt>
+              <dt className="price">金額</dt>
+              <dt className="count">数量</dt>
+            </dl>
+          </div>
+
           {cart.map(item => (
             <ul key={item.id}>
-              <li>{item.name}</li>
-              <li>{item.price}</li>
-              <li>×</li>
-              <li>{item.count}</li>
+              <li className="name">{item.name}</li>
+              <li className="price">{item.price * 1.1}</li>
+              <li className="count">× {item.count}</li>
             </ul>
           ))}
 
-          <p>
+          <h4>
             <label>合計金額</label>
             {currentCartAmount}
             円
-          </p>
+          </h4>
 
-          <button className="agree" onClick={handleConfirmBuy}>
-            確定
-          </button>
+          <div className="buttons">
+            <button className="prev btn" onClick={() => setIsConfirming(false)}>
+              戻る
+            </button>
 
-          <button className="prev" onClick={() => setIsConfirming(false)}>
-            戻る
-          </button>
+            <button className="agree btn" onClick={handleConfirmBuy}>
+              確定
+            </button>
+          </div>
+
         </section>
       )}
     </>
-  )}
+  )
+}
 
-  export default Cart;
+export default Cart;

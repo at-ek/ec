@@ -2,6 +2,7 @@ import { categorys } from '../data/products';
 import { IoIosArrowDropleft } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { IoFilterOutline } from "react-icons/io5";
+import { MdAccountCircle } from "react-icons/md";
 
 
 const Nav = ({
@@ -31,17 +32,17 @@ const Nav = ({
             currentUser
               ? (
                 <div className='account-buttons'>
-                  <button type='button' className='user' >{currentUser.aid}</button>
-                  <button type='button' className='logout' onClick={handleLogout}>ログアウト</button>
+                  <button type='button' className='user icon-containar' ><MdAccountCircle className='icon'/><p>{currentUser.aid}</p></button>
+                  <button type='button' className='logout btn' onClick={handleLogout}>ログアウト</button>
                 </div>
               )
               : (
                 <div className='account-buttons'>
-                  <button type='button' className='login' onClick={() => {
+                  <button type='button' className='login btn' onClick={() => {
                     setCurrentPage('login');
                     setToggleNav(false);
                     }}>ログイン</button>
-                  <button type='button' className='create' onClick={() => {
+                  <button type='button' className='create btn' onClick={() => {
                     setCurrentPage('create');
                     setToggleNav(false);
                     }}>アカウント作成</button>
@@ -55,11 +56,12 @@ const Nav = ({
             }}><IoCartOutline className='icon' /><label>{currentCartCount}</label></button>
         </div>
 
+        <div className="product-header">
+          <h3>Product</h3>
+          <button type='button' className="icon-containar filter"><IoFilterOutline className='icon'/><label>{selectedTags.length}</label></button>
+        </div>
         <div className='product-menu'>
-            <div className="product-header">
-            <h3>Product</h3>
-            <button type='button' className="icon-containar filter"><IoFilterOutline className='icon'/><label>{selectedTags.length}</label></button>
-            </div>
+            
           {categorys.map((cat) => {
             return (
               <div key={cat.name} className='product-category'>

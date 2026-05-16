@@ -1,0 +1,43 @@
+/* header */
+.hamb .icon {
+  transition: .5s;
+}
+
+.hamb.open .icon {
+  transform: rotate(360deg);
+}
+/* header */
+
+/* nav */
+.menu {
+  left: -100vw;
+  transition: .5s;
+}
+
+.menu.open {
+  left: 0;
+}
+
+.product-category button {
+  transform: .5s;
+}
+
+.product-category button.selected {
+  color: #a6a6a6;
+  text-decoration: underline;
+}
+/* nav */
+
+/* modal */
+.modal {
+  opacity: 0;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* modal */
+

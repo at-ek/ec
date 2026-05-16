@@ -5,7 +5,7 @@ import { FaMinus } from "react-icons/fa6";
 const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct, countProduct, setCountProduct, handleAddCart }) => {
   if (!isModalOpen) return null;
   return (
-    <div className='modal open' onClick={handleCloseModal}>
+    <div className={`modal ${isModalOpen ? 'open' : ''}`} onClick={handleCloseModal}>
       <button className='icon-containar close' onClick={handleCloseModal}><IoCloseCircleOutline className="icon" /></button>
 
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
@@ -35,7 +35,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
           </div>
           <button
             type='button'
-            className="add-cart"
+            className="add-cart btn"
             onClick={() => {
               handleAddCart({
               id: selectedProduct.id,

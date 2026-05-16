@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 import { products } from './data/products';
 import Nav from './components/Nav';
@@ -8,8 +8,10 @@ import CreateAccount from './components/CreateAc';
 import Cart from './components/Cart';
 import './css/nav.css';
 import './css/contents.css';
+import './css/modal.css';
 import './css/account.css';
 import './css/cart.css';
+import './css/animation.css';
 import { FaPlus } from "react-icons/fa6";
 
 const App = () => {
@@ -120,8 +122,14 @@ const App = () => {
   }
 
   const handleLogout = () => {
-    SetCurrentUser(null);
-    setCurrentPage('contents');
+    const confi = confirm('ログアウトしますか？');
+
+    if(confi === true) {
+      SetCurrentUser(null);
+      setCurrentPage('contents');
+    } else {
+      return null;
+    }
   }
   // ログイン・アウト機能
 
@@ -164,7 +172,6 @@ const App = () => {
   const [countProduct, setCountProduct] = useState(1);
 
   const handleOpenModal = (item) => {
-    console.log("open");
     setSelectedProduct(item);
     setCountProduct(1);
     setIsModalOpen(true);
@@ -257,10 +264,7 @@ const App = () => {
 
         <button
           className={`icon-containar hamb ${toggleNav ? 'open' : ''}`}
-          onClick={() => {
-            console.log('click');
-            setToggleNav(prev => !prev);
-          }}
+          onClick={() => setToggleNav(prev => !prev)}
         >
           <FaPlus className='icon' />
         </button>

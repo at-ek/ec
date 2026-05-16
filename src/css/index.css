@@ -5,7 +5,7 @@
   --sub-gray: #d6d6d6;
   --red: #d32f2f;
   --blue: #1976d2;
-  --yellow: #fbc02d;
+  --yellow: #e6b22d;
   --green: #388e3c;
 }
 
@@ -25,10 +25,10 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+h2, h3 {
   font-family: "Oswald", "Noto Sans JP", sans-serif;
   letter-spacing: 0.08em;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -56,6 +56,29 @@ button {
   border: none;
 }
 
+/* ボタン */
+.btn {
+  width: 128px;
+  padding: 16px;
+  font-weight: bold;
+}
+
+.login, .add-cart, .buy, .agree {
+  background: var(--yellow);
+}
+
+.create {
+  background: var(--blue);
+}
+
+.prev, .reset {
+  background: var(--green);
+}
+
+.logout {
+  background: var(--red);
+}
+
 .icon-containar {
   display: flex;
   justify-content: center;
@@ -79,18 +102,7 @@ button {
   height: 24px;
   border-radius: 50%;
 }
-
-.login {
-  background: var(--yellow);
-}
-
-.create {
-  background: var(--green);
-}
-
-.logout {
-  background: var(--red);
-}
+/* ボタン */
 
 header {
   position: fixed;
@@ -125,14 +137,16 @@ header .hamb .icon {
 
 main {
   min-height: 100dvh;
-  padding: 128px 24px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 168px 24px 40px;
   position: relative;
 }
 
 footer {
   padding: 40px 0;
   text-align: center;
-  background: var(--gray);
+  background: var(--text);
 }
 
 footer p {

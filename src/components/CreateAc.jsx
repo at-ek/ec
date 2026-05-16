@@ -46,7 +46,7 @@ const handleChangeValue = (e) => {
              />
           </li>
           {errors.confirmPass && <li className='error-message'>{errors.confirmPass}</li>}
-          <li><button type='button' onClick={handleSubmit}>作成</button></li>
+          <li><button type='button' className='create btn' onClick={handleSubmit}>アカウント作成</button></li>
         </ul>
       </form>
       <div className="notice">

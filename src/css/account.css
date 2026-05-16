@@ -1,10 +1,18 @@
-.login-form, .create-form {
+.login-form, 
+.create-form {
+  max-width: 500px;
+  margin: 0 auto 24px;
+}
+
+.login-form ul,
+.create-form ul {
   margin-bottom: 24px;
-  padding: 24px;
+  padding: 40px 24px;
+  background: var(--gray);
 }
 
 .login-form li,
-.create-form li{
+.create-form li {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,18 +23,31 @@
   margin-bottom: 24px;
 }
 
+.login-form li:last-of-type,
+.create-form li:last-of-type {
+  margin-bottom: 0;
+}
+
+.login-form label{
+  min-width: 6em;
+  text-align: center;
+}
+
 .login-form button {
   margin: 0 auto;
 }
 
+.create-form label {
+  display: block;
+}
+
 .create-form button {
-  width: 9em;
   margin: 0 auto;
-  padding: 4px 8px;
-  font-weight: bold;
-  background: var(--blue);
 }
 
 .notice {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
   color: var(--red);
 }
