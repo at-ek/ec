@@ -185,6 +185,10 @@ button {
     max-width: 800px;
   }
 
+  .product-category {
+    padding-left: 0;
+  }
+
   .pc-nav {
     display: block;
     max-width: 1200px;
@@ -245,5 +249,10 @@ button {
 @media screen and (min-width: 1000px) {
   .product-header {
     max-width: 800px;
+  }
+
+  .product-menu {
+    max-width: none;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
