@@ -16,11 +16,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.login-form li,
-.create-form li{
-  margin-bottom: 24px;
+  margin: 0 auto 24px;
 }
 
 .login-form li:last-of-type,
@@ -28,13 +24,25 @@
   margin-bottom: 0;
 }
 
+.login-form li {
+  max-width: 260px;
+}
+
 .login-form label{
   min-width: 6em;
-  text-align: center;
 }
 
 .login-form button {
   margin: 0 auto;
+}
+
+.create-form li {
+  max-width: 306px;
+}
+
+.create-form .error-message {
+  font-size: 12px;
+  color: var(--red);
 }
 
 .create-form label {

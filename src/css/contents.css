@@ -1,12 +1,7 @@
-.product h3 {
+.product-title {
   font-size: 24px;
   margin-bottom: 40px;
   text-align: center;
-}
-
-.product .reset {
-  margin: 0 auto 24px;
-  padding: 8px 24px;
 }
 
 .product-items {
@@ -18,7 +13,7 @@
   margin: 0 auto 40px;
   padding: 16px;
   text-align: center;
-  background: var(--gray);
+  background: var(--sub-bg);
   border-radius: 3px;
   box-shadow: 0px 10px 10px -8px hsla(0, 0%, 84%, 0.5);
 }

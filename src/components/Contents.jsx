@@ -1,6 +1,20 @@
+import { categorys } from "../data/products"
 import Modal from "./Modal"
+import PCNav from "./PCNav"
 
-const Contents = ({ filteredProducts, selectedTags, handleResetTags, handleOpenModal, handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct, countProduct, setCountProduct, handleAddCart }) => {
+const Contents = ({ filteredProducts, 
+  selectedTags, 
+  handleResetTags, 
+  handleOpenModal, 
+  handleCloseModal, 
+  isModalOpen, 
+  setIsModalOpen, 
+  selectedProduct,
+  handleChoicedTags, 
+  handleAllChoicedTags,
+  countProduct, 
+  setCountProduct, 
+  handleAddCart }) => {
 
   return (
     <>
@@ -18,11 +32,15 @@ const Contents = ({ filteredProducts, selectedTags, handleResetTags, handleOpenM
 
 
       <section className="product">
-        <h3>Lineup</h3>
+        <h3 className="product-title">Lineup</h3>
 
-        {selectedTags.length > 0 && (
-          <button type='button' className='reset' onClick={() => handleResetTags()}>Reset</button>
-        )}
+        <PCNav 
+          categorys={categorys}
+          selectedTags={selectedTags}
+          handleChoicedTags={handleChoicedTags}
+          handleAllChoicedTags={handleAllChoicedTags}
+          handleResetTags={handleResetTags}
+        />
         
         <div className="product-items">
           {filteredProducts.map((pro) => {
@@ -31,7 +49,7 @@ const Contents = ({ filteredProducts, selectedTags, handleResetTags, handleOpenM
                 handleOpenModal(pro)
               }}>
                 <li className="item-img">
-                  <img src={`/products/${pro.src}`} alt={pro.name} />
+                  <img src={`/products/${pro.src[0]}`} alt={pro.name} />
                 </li>
                 <li className="item-name">
                   <h4>{pro.name}</h4>

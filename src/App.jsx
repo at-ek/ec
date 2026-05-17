@@ -64,15 +64,15 @@ const App = () => {
     }
 
     if (idValidation(createForm.aid)) {
-      newErrors.aid = 'IDを正しく入力してください'
+      newErrors.aid = '※IDを正しく入力してください'
     }
 
     if (passValidation(createForm.pass)) {
-      newErrors.pass = 'パスワードを正しく入力してください'
+      newErrors.pass = '※パスワードを正しく入力してください'
     }
 
     if (createForm.pass !== createForm.confirmPass) {
-      newErrors.confirmPass = 'パスワードが一致しません'
+      newErrors.confirmPass = '※パスワードが一致しません'
     }
 
     setErrors(newErrors);
@@ -98,7 +98,7 @@ const App = () => {
     SetCurrentUser(newAccount);
     setCurrentPage('contens');
   }
-  
+
   const handleRemoveAccount = () => { }
   // アカウント作成・追加・削除
 
@@ -124,7 +124,7 @@ const App = () => {
   const handleLogout = () => {
     const confi = confirm('ログアウトしますか？');
 
-    if(confi === true) {
+    if (confi === true) {
       SetCurrentUser(null);
       setCurrentPage('contents');
     } else {
@@ -258,7 +258,7 @@ const App = () => {
         <button type='button' onClick={() => {
           setCurrentPage('contents');
           setToggleNav(false);
-          }}>
+        }}>
           <h1 className="logo"><img src='/logo.png' alt="logo" /></h1>
         </button>
 
@@ -294,6 +294,8 @@ const App = () => {
             isModalOpen={isModalOpen}
             setIsModalOpen={setIsModalOpen}
             selectedProduct={selectedProduct}
+            handleChoicedTags={handleChoicedTags}
+            handleAllChoicedTags={handleAllChoicedTags}
             countProduct={countProduct}
             setCountProduct={setCountProduct}
             handleAddCart={handleAddCart}
@@ -328,6 +330,9 @@ const App = () => {
       </main>
 
       <footer>
+        <button className='copy-id' type='button' value='1192kamakura' onClick={(e) => {
+          navigator.clipboard.writeText(e.target.value);
+        }}>IDコピー</button>
         <p><small>&copy; PAMA since 1947</small></p>
       </footer>
     </>

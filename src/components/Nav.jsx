@@ -11,6 +11,7 @@ const Nav = ({
   selectedTags,
   handleChoicedTags,
   handleAllChoicedTags,
+  handleResetTags,
   setCurrentPage,
   currentUser,
   handleLogout,
@@ -19,49 +20,57 @@ const Nav = ({
   return (
     <aside className={`menu ${toggleNav ? 'open' : ''}`}>
       <nav>
-        <button 
-          type="button" 
-          className='back icon-containar' 
+        <button
+          type="button"
+          className='back icon-containar'
           onClick={() => {
-          setToggleNav(false);
-        }}><IoIosArrowDropleft className='icon' />
+            setToggleNav(false);
+          }}><IoIosArrowDropleft className='icon' />
         </button>
 
-        <div className='account-menu'>
-          {
-            currentUser
-              ? (
-                <div className='account-buttons'>
-                  <button type='button' className='user icon-containar' ><MdAccountCircle className='icon'/><p>{currentUser.aid}</p></button>
-                  <button type='button' className='logout btn' onClick={handleLogout}>ログアウト</button>
-                </div>
-              )
-              : (
-                <div className='account-buttons'>
-                  <button type='button' className='login btn' onClick={() => {
-                    setCurrentPage('login');
-                    setToggleNav(false);
+        <div className="menu-buttons">
+          <button type='button' className='home btn' onClick={() => setCurrentPage('contents')}>Home</button>
+
+          <div className='account-menu'>
+            {
+              currentUser
+                ? (
+                  <div className='account-buttons'>
+                    <button type='button' className='user icon-containar' ><MdAccountCircle className='icon' /><p>{currentUser.aid}</p></button>
+                    <button type='button' className='logout btn' onClick={handleLogout}>ログアウト</button>
+                  </div>
+                )
+                : (
+                  <div className='account-buttons'>
+                    <button type='button' className='login btn' onClick={() => {
+                      setCurrentPage('login');
+                      setToggleNav(false);
                     }}>ログイン</button>
-                  <button type='button' className='create btn' onClick={() => {
-                    setCurrentPage('create');
-                    setToggleNav(false);
+                    <button type='button' className='create btn' onClick={() => {
+                      setCurrentPage('create');
+                      setToggleNav(false);
                     }}>アカウント作成</button>
-                </div>
-              )
-          }
+                  </div>
+                )
+            }
+          </div>
 
           <button type='button' className='cart icon-containar' onClick={() => {
             setCurrentPage('cart');
             setToggleNav(false);
-            }}><IoCartOutline className='icon' /><label>{currentCartCount}</label></button>
+          }}><IoCartOutline className='icon' /><label>{currentCartCount}</label></button>
         </div>
 
         <div className="product-header">
           <h3>Product</h3>
-          <button type='button' className="icon-containar filter"><IoFilterOutline className='icon'/><label>{selectedTags.length}</label></button>
+          <div className="buttons">
+            {
+              selectedTags.length > 0 && (<button type="button" className="reset" onClick={() => handleResetTags()}>Reset</button>)
+            }
+            <button type='button' className="icon-containar filter"><IoFilterOutline className='icon' /><label>{selectedTags.length}</label></button>
+          </div>
         </div>
         <div className='product-menu'>
-            
           {categorys.map((cat) => {
             return (
               <div key={cat.name} className='product-category'>
@@ -73,7 +82,7 @@ const Nav = ({
                       onClick={() => {
                         handleAllChoicedTags(cat.tags);
                         setCurrentPage('contents');
-                        }}>
+                      }}>
                       All
                     </button>
                   </li>
@@ -86,7 +95,7 @@ const Nav = ({
                           onClick={() => {
                             handleChoicedTags(tag);
                             setCurrentPage('contents');
-                            }}>
+                          }}>
                           {tag}
                         </button>
                       </li>

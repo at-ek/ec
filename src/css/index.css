@@ -1,7 +1,8 @@
 :root {
-  --text: #262626;
+  --text: #363636;
   --bg: #ffffff;
-  --gray: #e6e6e6;
+  --sub-bg: #f0f0f0;
+  --gray: #eeeeee;
   --sub-gray: #d6d6d6;
   --red: #d32f2f;
   --blue: #1976d2;
@@ -47,6 +48,9 @@ img {
 
 input {
   display: block;
+  height: 22px;
+  padding: 4px;
+  border-radius: 4px;
   border: 1px solid var(--text);
 }
 
@@ -59,8 +63,13 @@ button {
 /* ボタン */
 .btn {
   width: 128px;
-  padding: 16px;
+  padding: 16px 8px;
   font-weight: bold;
+}
+
+.home {
+  color: var(--text);
+  background: var(--bg);
 }
 
 .login, .add-cart, .buy, .agree {
@@ -127,7 +136,7 @@ header .logo img {
 header .hamb {
   width: 100%;
   padding: 8px 0;
-  background: #262626;
+  background: #161616;
 }
 
 header .hamb .icon {
@@ -146,11 +155,17 @@ main {
 footer {
   padding: 40px 0;
   text-align: center;
-  background: var(--text);
+  background: #161616;
+}
+
+footer .copy-id {
+  margin: 0 auto 24px;
+  padding: 8px;
+  color: var(--text);
+  background: var(--sub-bg);
 }
 
 footer p {
   line-height: 3;
   color: var(--bg);
-  background: var(--text);
 }

@@ -34,7 +34,7 @@ const handleChangeValue = (e) => {
           </li>
           {errors.pass && <li className='error-message'>{errors.pass}</li>}
           <li>
-            <label>パスワード確認用：</label>
+            <label>パスワード(再)：</label>
             <input 
               type="password"
               name='confirmPass'
@@ -53,7 +53,6 @@ const handleChangeValue = (e) => {
         <p className="notice-id">※IDは半角英数字を含む合計8文字以上16文字以内のもの</p>
         <p className="notice-pass">※パスワードは半角英数字を含む合計8文字以上16文字以内のもの</p>
       </div>
-
     </>
   )
 }

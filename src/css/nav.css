@@ -22,12 +22,16 @@ button {
   height: 40px;
 }
 
-.account-menu {
+.menu-buttons {
   margin-bottom: 40px;
   padding-left: 16px;
 }
 
-.account-buttons {
+.home {
+  margin-bottom: 24px;
+}
+
+.account-menu {
   margin-bottom: 24px;
 }
 
@@ -66,6 +70,12 @@ button {
   background: rgb(67, 185, 145);
 }
 
+.reset {
+  padding: 8px 24px;
+  font-style: normal;
+  color: var(--bg);
+}
+
 
 .product-header {
   display: flex;
@@ -82,10 +92,24 @@ button {
   padding-left: 16px;
 }
 
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .product-header h3 {
   font-size: 24px;
   line-height: 2.6;
   color: var(--bg);
+}
+
+.product-header .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
 }
 
 .product-category {
@@ -132,14 +156,89 @@ button {
   font-style: italic;
 }
 
-@media screen and (min-width: 600px) {
+.pc-nav {
+  display: none;
+}
+
+@media screen and (min-width: 660px) {
   .product-header {
     max-width: 560px;
   }
+
+  .account-buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .login {
+    margin-bottom: 0;
+  }
+
+  .user {
+    margin-bottom: 0;
+  }
+
   .product-menu {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     max-width: 800px;
+  }
+
+  .pc-nav {
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+
+  .pc-product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+    background: var(--sub-bg);
+  }
+
+  .pc-product-hamb {
+    color: var(--text);
+  }
+
+  .pc-product-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    width: max-content;
+    margin-left: auto;
+  }
+
+  .pc-product-menu {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    border: 1px solid var(--gray);
+  }
+
+  .pc-product-category {
+    flex: 1;
+  }
+
+  .pc-product-category h3 {
+    line-height: 2;
+    font-size: 18px;
+  }
+
+  .pc-product-category li{
+    padding-left: 8px;
+  }
+
+  .pc-product-category button {
+    font-size: 14px;
+    font-style: italic;
+    line-height: 1.8;
+    color: var(--text);
   }
 }
 

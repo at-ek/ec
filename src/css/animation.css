@@ -26,6 +26,15 @@
   color: #a6a6a6;
   text-decoration: underline;
 }
+
+.pc-product-category button {
+  transform: .5s;
+}
+
+.pc-product-category button.selected {
+  color: #a6a6a6;
+  text-decoration: underline;
+}
 /* nav */
 
 /* modal */
