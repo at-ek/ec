@@ -44,7 +44,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
             <label>{countProduct}</label>
             <button
               type="button"
-              className="plus"
+              className="icon-containar plus"
               onClick={() => setCountProduct(prev => prev + 1)}
             ><FaPlus className="icon" />
             </button>

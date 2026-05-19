@@ -21,6 +21,7 @@
 .product-items .item .item-img {
   margin-bottom: 16px;
   background: var(--bg);
+  cursor: pointer;
 }
 
 .product-items .item .item-name {

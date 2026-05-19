@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { FaPlus } from "react-icons/fa6";
 import { IoFilterOutline } from "react-icons/io5";
+
 const PCNav = ({ categorys, selectedTags, handleChoicedTags, handleAllChoicedTags, handleResetTags }) => {
+  const [PCNavOpen, setPCNavOpen] = useState(false);
+
   return (
     <nav className="pc-nav">
       <div className="pc-product-header">
-        <button className="icon-containar pc-product-hamb">
+        <button type='button' className={`icon-containar pc-product-hamb ${PCNavOpen ? 'open' : ''}`} onClick={() => setPCNavOpen(prev => !prev)}>
           <FaPlus className="icon" />
         </button>
         <div className="pc-product-filter">
@@ -15,7 +19,7 @@ const PCNav = ({ categorys, selectedTags, handleChoicedTags, handleAllChoicedTag
         </div>
       </div>
 
-      <div className='pc-product-menu'>
+      <div className={`pc-product-menu ${PCNavOpen ? 'open' : ''}`}>
         {categorys.map((cat) => {
           return (
             <div key={cat.name} className='pc-product-category'>

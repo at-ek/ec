@@ -1,25 +1,35 @@
 /* header */
 .hamb .icon {
-  transition: .5s;
+  transition: .5s ease-in;
 }
 
 .hamb.open .icon {
   transform: rotate(360deg);
 }
+
 /* header */
 
 /* nav */
 .menu {
   left: -100vw;
-  transition: .5s;
+  transition: .5s ease-in;
 }
 
 .menu.open {
   left: 0;
 }
 
+.back {
+  transform: rotate(180deg);
+  transition: .5s ease-in;
+}
+
+.menu.open .back {
+  transform: rotate(0deg);
+}
+
 .product-category button {
-  transform: .5s;
+  transition: .5s;
 }
 
 .product-category button.selected {
@@ -28,25 +38,113 @@
 }
 
 .pc-product-category button {
-  transform: .5s;
+  transition: .5s;
 }
 
 .pc-product-category button.selected {
   color: #a6a6a6;
   text-decoration: underline;
 }
+
 /* nav */
+
+/* pcnav */
+.pc-product-hamb .icon {
+  transition: .5s ease-in;
+}
+
+.pc-product-hamb.open .icon {
+  transform: rotate(360deg);
+}
+
+.pc-product-menu {
+  max-height: 0;
+  transform: translateY(-80px);
+  overflow: hidden;
+  opacity: 0;
+  transition: all .5s ease-in;
+}
+
+.pc-product-menu.open {
+  max-height: 300px;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* pcnav */
 
 /* modal */
 .modal {
   opacity: 0;
   pointer-events: none;
-  transition: .5s;
+  transition: .5s ease-in;
 }
 
 .modal.open {
   opacity: 1;
   pointer-events: auto;
 }
+
 /* modal */
 
+@media screen and (min-width: 1000px) {
+  /* btn */
+  .home,
+  .login,
+  .add-cart,
+  .buy,
+  .agree, 
+  .create,
+  .prev,
+  .reset,
+  .logout {
+    transition: .5s;
+  }
+
+  .home:hover {
+    background: #b6b6b6;
+  }
+
+  .login:hover,
+  .add-cart:hover,
+  .buy:hover,
+  .agree:hover {
+    background: var(--hover-yellow);
+  }
+
+  .create:hover {
+    background: var(--hover-blue);
+  }
+
+  .prev:hover,
+  .reset:hover {
+    background: var(--hover-green);
+  }
+
+  .logout:hover {
+    background: var(--hover-red);
+  }
+  /* btn */
+
+  /* nav */
+  .cart {
+    transition: .5s;
+  }
+
+  .cart:hover {
+    transform: scale(1.1);
+  }
+
+  .product-category button:hover {
+    color: #a6a6a6;
+    text-decoration: underline;
+  }
+  /* nav */
+
+  /* pcnav */
+  .pc-product-category button:hover {
+    color: #a6a6a6;
+    text-decoration: underline;
+  }
+  /* pcnav */
+}

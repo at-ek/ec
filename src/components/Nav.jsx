@@ -29,7 +29,10 @@ const Nav = ({
         </button>
 
         <div className="menu-buttons">
-          <button type='button' className='home btn' onClick={() => setCurrentPage('contents')}>Home</button>
+          <button type='button' className='home btn' onClick={() => {
+            setCurrentPage('contents');
+            setToggleNav(false);
+          }}>Home</button>
 
           <div className='account-menu'>
             {
