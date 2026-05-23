@@ -1,7 +1,7 @@
 .login-form, 
 .create-form {
   max-width: 500px;
-  margin: 0 auto 24px;
+  margin-bottom: 24px;
 }
 
 .login-form ul,

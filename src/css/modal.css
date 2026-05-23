@@ -13,8 +13,14 @@
   z-index: 30;
 }
 
+.modal-card {
+  max-width: 300px;
+  background: var(--bg);
+}
+
 .close {
-  margin-bottom: 24px;
+  margin: 8px auto 0;
+  color: var(--text);
 }
 
 .close .icon {
@@ -22,47 +28,55 @@
   height: 32px;
 }
 
-.modal-card {
-  max-width: 300px;
-  background: var(--bg);
-}
-
-.modal-card .modal-item {
+.modal-item {
   padding: 24px 16px;
   text-align: center;
 }
 
-.modal-card .modal-item .item-img {
+.modal-item .item-img {
   width: 80%;
   margin: 0 auto 16px;
 }
 
-.modal-card .modal-item .item-img-list {
+.modal-item .item-img-list {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border: 1px solid var(--sub-gray);
 }
 
-.modal-card .modal-item .item-img-list img{
+.modal-item .item-img-list img{
   flex: 1;
   width: 40px;
 }
 
-.modal-card .modal-item .item-name {
-  font-size: 16px;
-  margin-bottom: 8px;
-  font-weight: bold;
+.modal-item .item-colors {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
-.modal-card .modal-item .item-price label{
+.modal-item .item-colors span {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.modal-item .item-name {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.modal-item .item-price label{
   font-size: .8em;
 }
 
 .modal-card form {
-  padding: 24px;
+  padding: 16px;
   background: var(--sub-bg);
 }
 

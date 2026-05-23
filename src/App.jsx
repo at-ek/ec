@@ -2,11 +2,13 @@ import { useState } from 'react';
 
 import { products } from './data/products';
 import Nav from './components/Nav';
+import Slider from './components/Slider';
 import Contents from './components/Contents';
 import Login from './components/Login';
 import CreateAccount from './components/CreateAc';
 import Cart from './components/Cart';
 import './css/nav.css';
+import './css/slider.css';
 import './css/contents.css';
 import './css/modal.css';
 import './css/account.css';
@@ -270,6 +272,10 @@ const App = () => {
         </button>
       </header>
 
+      <div className="top">
+        <img src="/top.png" alt="top" />
+      </div>
+
       <Nav
         toggleNav={toggleNav}
         setToggleNav={setToggleNav}
@@ -282,6 +288,10 @@ const App = () => {
         handleLogout={handleLogout}
         currentCartCount={currentCartCount}
       />
+
+      {currentPage === 'contents' &&
+        <Slider />
+      }
 
       <main>
         {currentPage === 'contents' &&

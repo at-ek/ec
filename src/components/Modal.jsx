@@ -16,9 +16,8 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
   if (!isModalOpen) return null;
   return (
     <div className={`modal ${isModalOpen ? 'open' : ''}`} onClick={handleCloseModal}>
-      <button className='icon-containar close' onClick={handleCloseModal}><IoCloseCircleOutline className="icon" /></button>
-
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
+        <button className='icon-containar close' onClick={handleCloseModal}><IoCloseCircleOutline className="icon" /></button>
         <ul className='modal-item'>
           <li className='item-img'>{currentImg && (<img src={`/products/${currentImg}`}/>)}</li>
           <li className='item-img-list'>
@@ -27,6 +26,9 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
                 <img key={img} src={`/products/${img}`} onClick={() => setCurrentImg(img)}/>
               )
             })}
+          </li>
+          <li className="item-colors">
+            {selectedProduct?.colors.map(color => <span key={color} style={{background: color}}></span>)}
           </li>
           <li className='item-name'>{selectedProduct?.name}</li>
           <li className='item-price'>¥{selectedProduct?.price}<label>(※税抜き)</label></li>

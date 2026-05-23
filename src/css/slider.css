@@ -1,0 +1,32 @@
+.slider {
+  width: 100%;
+  margin: 104px auto 40px;
+  overflow: hidden;
+}
+
+.swiper-slide {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  padding: 4px 8px;
+  
+}
+
+.swiper-navigation-icon {
+  padding: 4px;
+  color: var(--text);
+  background: rgba(255,255,255,.3);
+}
+
+.swiper-pagination-bullet-active {
+  background: rgba(255,255,255,.6);
+}

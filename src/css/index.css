@@ -1,13 +1,13 @@
 :root {
-  --text: #363636;
+  --text: #262626;
   --bg: #ffffff;
   --sub-bg: #f0f0f0;
   --gray: #eeeeee;
   --sub-gray: #d6d6d6;
-  --red: #d32f2f;
-  --blue: #1976d2;
-  --yellow: #e6b22d;
-  --green: #388e3c;
+  --red: #b12626;
+  --blue: #1670ca;
+  --yellow: #e68a2d;
+  --green: #468d49;
   --hover-red: #912222;
   --hover-blue: #124f8b;
   --hover-yellow: #9f7b20;
@@ -153,15 +153,32 @@ header .hamb {
 
 header .hamb .icon {
   color: var(--bg);
-  border: 1px solid var(--bg);
+}
+
+.top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gray);
 }
 
 main {
   min-height: 100dvh;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 168px 24px 40px;
+  padding: 24px 40px;
   position: relative;
+}
+
+.login-form, 
+.create-form,
+.cart-product,
+.cart-confirm {
+  margin: 144px auto;
 }
 
 footer {

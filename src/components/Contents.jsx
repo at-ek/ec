@@ -51,9 +51,10 @@ const Contents = ({ filteredProducts,
                 <li className="item-img">
                   <img src={`/products/${pro.src[0]}`} alt={pro.name} />
                 </li>
-                <li className="item-name">
-                  <h4>{pro.name}</h4>
+                <li className="item-colors">
+                  {pro.colors.map(color => <span key={color} style={{background: color}}></span>)}
                 </li>
+                <li className="item-name">{pro.name}</li>
                 <li className="item-price">
                   <p>¥{pro.price}</p>
                 </li>
