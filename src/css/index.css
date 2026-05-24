@@ -1,5 +1,6 @@
 :root {
   --text: #262626;
+  --accent: #181920;
   --bg: #ffffff;
   --sub-bg: #f0f0f0;
   --gray: #eeeeee;
@@ -147,7 +148,7 @@ header .logo img {
 header .hamb {
   width: 100%;
   padding: 8px 0;
-  background: #161616;
+  background: var(--accent);
   cursor: pointer;
 }
 
@@ -155,7 +156,7 @@ header .hamb .icon {
   color: var(--bg);
 }
 
-.top {
+/* .top {
   position: fixed;
   bottom: 24px;
   right: 24px;
@@ -164,7 +165,7 @@ header .hamb .icon {
   height: 56px;
   border-radius: 50%;
   background: var(--gray);
-}
+} */
 
 main {
   min-height: 100dvh;
@@ -184,7 +185,7 @@ main {
 footer {
   padding: 40px 0;
   text-align: center;
-  background: #161616;
+  background: var(--accent);
 }
 
 footer .copy-id {

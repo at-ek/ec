@@ -272,9 +272,9 @@ const App = () => {
         </button>
       </header>
 
-      <div className="top">
+      {/* <a href='#' className="top">
         <img src="/top.png" alt="top" />
-      </div>
+      </a> */}
 
       <Nav
         toggleNav={toggleNav}

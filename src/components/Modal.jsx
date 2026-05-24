@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
@@ -7,28 +8,33 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
   const [currentImg, setCurrentImg] = useState('');
 
   useEffect(() => {
-    if(selectedProduct?.src?.length) {
+    if (selectedProduct?.src?.length) {
       setCurrentImg(selectedProduct?.src?.[0]);
     }
   }, [selectedProduct]);
-  
+
 
   if (!isModalOpen) return null;
   return (
     <div className={`modal ${isModalOpen ? 'open' : ''}`} onClick={handleCloseModal}>
       <div className="modal-card" onClick={(e) => e.stopPropagation()}>
         <button className='icon-containar close' onClick={handleCloseModal}><IoCloseCircleOutline className="icon" /></button>
+
         <ul className='modal-item'>
-          <li className='item-img'>{currentImg && (<img src={`/products/${currentImg}`}/>)}</li>
+          <li className='item-img'>{currentImg && (<img src={`/products/${currentImg}`} />)}</li>
           <li className='item-img-list'>
-            {selectedProduct?.src?.map(img => {
-              return (
-                <img key={img} src={`/products/${img}`} onClick={() => setCurrentImg(img)}/>
-              )
-            })}
+            <Swiper spaceBetween={8}>
+              {selectedProduct?.src?.map(img => {
+                return (
+                  <SwiperSlide key={img}>
+                    <img key={img} src={`/products/${img}`} onClick={() => setCurrentImg(img)} />
+                  </SwiperSlide>
+                )
+              })}
+            </Swiper>
           </li>
           <li className="item-colors">
-            {selectedProduct?.colors.map(color => <span key={color} style={{background: color}}></span>)}
+            {selectedProduct?.colors.map(color => <span key={color} style={{ background: color }}></span>)}
           </li>
           <li className='item-name'>{selectedProduct?.name}</li>
           <li className='item-price'>¥{selectedProduct?.price}<label>(※税抜き)</label></li>
@@ -56,14 +62,14 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
             className="add-cart btn"
             onClick={() => {
               handleAddCart({
-              id: selectedProduct.id,
-              src: selectedProduct.src,
-              name: selectedProduct.name,
-              price: selectedProduct.price,
-              count: countProduct
-            });
-            setIsModalOpen(false);
-          }}
+                id: selectedProduct.id,
+                src: selectedProduct.src,
+                name: selectedProduct.name,
+                price: selectedProduct.price,
+                count: countProduct
+              });
+              setIsModalOpen(false);
+            }}
           >カートに入れる
           </button>
         </form>
