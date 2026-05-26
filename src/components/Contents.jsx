@@ -56,7 +56,7 @@ const Contents = ({ filteredProducts,
                 </li>
                 <li className="item-name">{pro.name}</li>
                 <li className="item-price">
-                  <p>¥{pro.price}</p>
+                  <p>¥{pro.price.toLocaleString()}</p>
                 </li>
               </ul>
             )

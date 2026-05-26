@@ -23,7 +23,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
         <ul className='modal-item'>
           <li className='item-img'>{currentImg && (<img src={`/products/${currentImg}`} />)}</li>
           <li className='item-img-list'>
-            <Swiper spaceBetween={8}>
+            <Swiper spaceBetween={8} slidesPerView={'auto'}>
               {selectedProduct?.src?.map(img => {
                 return (
                   <SwiperSlide key={img}>
@@ -37,7 +37,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
             {selectedProduct?.colors.map(color => <span key={color} style={{ background: color }}></span>)}
           </li>
           <li className='item-name'>{selectedProduct?.name}</li>
-          <li className='item-price'>¥{selectedProduct?.price}<label>(※税抜き)</label></li>
+          <li className='item-price'>¥{selectedProduct?.price.toLocaleString()}<label>(※税抜き)</label></li>
           <li className='item-ex'>{selectedProduct?.ex}</li>
         </ul>
 

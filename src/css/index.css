@@ -1,6 +1,6 @@
 :root {
-  --text: #262626;
-  --accent: #181920;
+  --text: #363636;
+  --accent: #161616;
   --bg: #ffffff;
   --sub-bg: #f0f0f0;
   --gray: #eeeeee;
@@ -130,8 +130,8 @@ header {
   left: 0;
   z-index: 20;
   width: 100%;
-  height: 104px;
-  background: #f6f6f6;
+  height: 120px;
+  background: var(--bg);
 }
 
 header .logo{
@@ -147,7 +147,7 @@ header .logo img {
 
 header .hamb {
   width: 100%;
-  padding: 8px 0;
+  height: 56px;
   background: var(--accent);
   cursor: pointer;
 }
@@ -178,24 +178,18 @@ main {
 .login-form, 
 .create-form,
 .cart-product,
-.cart-confirm {
-  margin: 144px auto;
+.cart-confirm,
+.dami-content {
+  margin: 160px auto;
 }
 
-footer {
-  padding: 40px 0;
+.dami-content h3 {
+  font-size: 24px;
   text-align: center;
-  background: var(--accent);
 }
 
-footer .copy-id {
-  margin: 0 auto 24px;
-  padding: 8px;
-  color: var(--text);
-  background: var(--sub-bg);
-}
-
-footer p {
-  line-height: 3;
-  color: var(--bg);
+.dami-content img {
+  width: 80%;
+  max-width: 300px;
+  margin: 40px auto;
 }

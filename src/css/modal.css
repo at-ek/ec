@@ -47,13 +47,16 @@
   align-items: center;
   width: 100%;
   margin-bottom: 16px;
-  overflow-x: scroll;
+  overflow: hidden;
   border: 1px solid var(--sub-gray);
 }
 
-.modal-item .item-img-list .swiper-slide{
-  flex: 1;
-  width: 40px;
+.modal-item .item-img-list .swiper {
+  width: 100%;
+}
+
+.modal-item .item-img-list .swiper-slide {
+  width: 48px;
 }
 
 .modal-item .item-colors {
@@ -73,7 +76,6 @@
 
 .modal-item .item-name {
   font-size: 16px;
-  /* margin-bottom: 8px; */
 }
 
 .modal-item .item-price label{

@@ -19,7 +19,7 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
           {cart.map(pro => (
             <ul key={pro.id}>
               <li className="name">{pro.name}</li>
-              <li className="price">{pro.price * 1.1}円</li>
+              <li className="price">{Math.round(pro.price * 1.1).toLocaleString()}円</li>
               <li className="count cart-buttons">
                 <button className='minus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'decrease')}>
                   <FaMinus className="icon" />
@@ -63,7 +63,7 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
           {cart.map(item => (
             <ul key={item.id}>
               <li className="name">{item.name}</li>
-              <li className="price">{item.price * 1.1}</li>
+              <li className="price">{Math.round(item.price * 1.1).toLocaleString()}</li>
               <li className="count">× {item.count}</li>
             </ul>
           ))}

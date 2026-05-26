@@ -1,0 +1,153 @@
+footer {
+  padding: 40px 0;
+  text-align: center;
+  background: var(--accent);
+}
+
+footer button {
+  font-size: 14px;
+  cursor: pointer;
+}
+
+footer dt button {
+  width: 100%;
+  line-height: 3.2;
+}
+
+footer dd button {
+  line-height: 2.2;
+}
+
+footer .icon {
+  width: 32px;
+  height: 32px;
+}
+
+.footer-menu {
+  margin: 0 auto;
+  padding: 40px 24px;
+  display: table;
+}
+
+.footer-menu-category {
+  position: relative;
+  width: 300px;
+  margin-bottom: 24px;
+  color: var(--bg);
+}
+
+.footer-menu-category:last-of-type {
+  margin-bottom: 0;
+}
+
+.footer-menu-category dt {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
+  border: 1px solid var(--bg);
+}
+
+.footer-menu-category dt button {
+  padding-left: 22px;
+  line-height: 3.2;
+}
+
+.footer-menu-category .arrow {
+  font-size: 24px;
+}
+
+.footer-menu-category dd button{
+  width: 100%;
+  text-align: center;
+}
+
+.footer-menu-category li {
+  border-left: 1px solid var(--bg);
+  border-right: 1px solid var(--bg);
+  border-bottom: 1px solid var(--bg);
+}
+
+.footer-menu-sns {
+  padding: 16px;
+  border: 1px solid var(--bg);
+}
+
+.footer-menu-sns dt {
+  margin-bottom: 24px;
+  color: var(--bg);
+}
+
+.footer-menu-sns ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.pc-footer-menu {
+  display: none;
+}
+
+.copy-light {
+  line-height: 3;
+  font-size: 11px;
+  color: var(--bg);
+}
+
+/* footer .copy-id {
+  margin: 0 auto 24px;
+  padding: 8px;
+  color: var(--text);
+  background: var(--sub-bg);
+} */
+
+
+@media screen and (min-width: 600px) {
+  .footer-menu {
+    display: none;
+  }
+
+  .pc-footer-menu {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+
+  .pc-footer-menu-category,
+  .pc-footer-menu-sns  {
+    min-width: 150px;
+    max-width: 250px;
+    flex: 1;
+  }
+
+  .pc-footer-menu-category dt,
+  .pc-footer-menu-sns dt {
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--bg);
+  }
+
+  .pc-footer-menu-category dd {
+    padding-left: 8px;
+  } 
+
+  .pc-footer-menu-sns dt {
+    line-height: 3.2;
+    color: var(--bg);
+  }
+
+  .pc-footer-menu-sns  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+  }
+}

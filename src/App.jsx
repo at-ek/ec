@@ -7,12 +7,15 @@ import Contents from './components/Contents';
 import Login from './components/Login';
 import CreateAccount from './components/CreateAc';
 import Cart from './components/Cart';
+import Dami from './components/Dami';
+import Footer from './components/Footer';
 import './css/nav.css';
 import './css/slider.css';
 import './css/contents.css';
 import './css/modal.css';
 import './css/account.css';
 import './css/cart.css';
+import './css/footer.css';
 import './css/animation.css';
 import { FaPlus } from "react-icons/fa6";
 
@@ -249,7 +252,7 @@ const App = () => {
   const currentCartCount = cart.reduce((sum, item) => sum + item.count, 0);
   const currentCartAmount = Math.round(
     cart.reduce((sum, item) => sum + item.price * item.count, 0) * 1.1
-  );
+  ).toLocaleString();
   // カート機能
 
   const [toggleNav, setToggleNav] = useState(false);
@@ -337,14 +340,15 @@ const App = () => {
             setIsConfirming={setIsConfirming}
             handleConfirmBuy={handleConfirmBuy}
           />}
+
+          {currentPage === 'dami' && 
+            <Dami />
+          }
       </main>
 
-      <footer>
-        <button className='copy-id' type='button' value='1192kamakura' onClick={(e) => {
-          navigator.clipboard.writeText(e.target.value);
-        }}>IDコピー</button>
-        <p><small>&copy; PAMA since 1947</small></p>
-      </footer>
+      <Footer
+        setCurrentPage={setCurrentPage}
+      />
     </>
   )
 }

@@ -36,16 +36,6 @@
   color: #a6a6a6;
   text-decoration: underline;
 }
-
-.pc-product-category button {
-  transition: .5s;
-}
-
-.pc-product-category button.selected {
-  color: #a6a6a6;
-  text-decoration: underline;
-}
-
 /* nav */
 
 /* pcnav */
@@ -71,6 +61,14 @@
   transform: translateY(0);
 }
 
+.pc-product-category button {
+  transition: .5s;
+}
+
+.pc-product-category button.selected {
+  color: #a6a6a6;
+  text-decoration: underline;
+}
 /* pcnav */
 
 /* modal */
@@ -86,6 +84,30 @@
 }
 
 /* modal */
+
+/* footer */
+.contact dd,
+.company dd {
+  max-height: 0px;
+  padding-top: 46.4px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-80px);
+  transition: .5s;
+}
+
+.contact dd.open {
+  max-height: 269px;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.company dd.open {
+  max-height: 142px;
+  transform: translateY(0);
+  opacity: 1;
+}
+/* footer */
 
 @media screen and (min-width: 1000px) {
   /* btn */
@@ -147,4 +169,14 @@
     text-decoration: underline;
   }
   /* pcnav */
+
+  /* footer */
+  footer button {
+    transition: .5s;
+  }
+
+  footer button:hover {
+    color: #a6a6a6;
+  }
+  /* footer */
 }
