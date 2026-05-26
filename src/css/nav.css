@@ -5,7 +5,8 @@
   width: 100%;
   height: calc(100dvh - 104px);
   padding: 24px 16px;
-  background: hsla(0, 0%, 0%, 0.9);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
   overflow-y: auto;
   overscroll-behavior: contain;
 }
