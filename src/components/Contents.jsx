@@ -2,7 +2,9 @@ import { categorys } from "../data/products"
 import Modal from "./Modal"
 import PCNav from "./PCNav"
 
-const Contents = ({ filteredProducts, 
+const Contents = ({ 
+  setCurrentPage,
+  filteredProducts, 
   selectedTags, 
   handleResetTags, 
   handleOpenModal, 
@@ -20,6 +22,7 @@ const Contents = ({ filteredProducts,
     <>
       {isModalOpen &&
         <Modal
+          setCurrentPage={setCurrentPage}
           handleCloseModal={handleCloseModal}
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
@@ -31,8 +34,8 @@ const Contents = ({ filteredProducts,
       }
 
 
-      <section className="product">
-        <h3 className="product-title">Lineup</h3>
+      <section className="products">
+        <h3 className="products-title">Lineup</h3>
 
         <PCNav 
           categorys={categorys}
@@ -42,7 +45,7 @@ const Contents = ({ filteredProducts,
           handleResetTags={handleResetTags}
         />
         
-        <div className="product-items">
+        <div className="products-items">
           {filteredProducts.map((pro) => {
             return (
               <ul key={pro.id} className='item' onClick={() => {

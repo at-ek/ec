@@ -1,23 +1,25 @@
 import { useState } from 'react';
-
 import { products } from './data/products';
+import Header from './parts/Header';
 import Nav from './components/Nav';
 import Slider from './components/Slider';
 import Contents from './components/Contents';
+import Product from "./components/Product";
 import Login from './components/Login';
 import CreateAccount from './components/CreateAc';
 import Cart from './components/Cart';
 import Dami from './components/Dami';
-import Footer from './components/Footer';
+import Footer from './parts/Footer';
+import  './css/header.css';
 import './css/nav.css';
 import './css/slider.css';
 import './css/contents.css';
 import './css/modal.css';
+import './css/product.css';
 import './css/account.css';
 import './css/cart.css';
 import './css/footer.css';
 import './css/animation.css';
-import { FaPlus } from "react-icons/fa6";
 
 const App = () => {
   // アカウントstate
@@ -259,25 +261,13 @@ const App = () => {
 
   return (
     <>
-      <header>
-        <button type='button' onClick={() => {
-          setCurrentPage('contents');
-          setToggleNav(false);
-        }}>
-          <h1 className="logo"><img src='/logo.png' alt="logo" /></h1>
-        </button>
+      <Header
+        setCurrentPage={setCurrentPage}
+        toggleNav={toggleNav}
+        setToggleNav={setToggleNav}
+        currentCartCount={currentCartCount}
+      />
 
-        <button
-          className={`icon-containar hamb ${toggleNav ? 'open' : ''}`}
-          onClick={() => setToggleNav(prev => !prev)}
-        >
-          <FaPlus className='icon' />
-        </button>
-      </header>
-
-      {/* <a href='#' className="top">
-        <img src="/top.png" alt="top" />
-      </a> */}
 
       <Nav
         toggleNav={toggleNav}
@@ -299,6 +289,7 @@ const App = () => {
       <main>
         {currentPage === 'contents' &&
           <Contents
+            setCurrentPage={setCurrentPage}
             filteredProducts={filteredProducts}
             selectedTags={selectedTags}
             handleResetTags={handleResetTags}
@@ -309,6 +300,15 @@ const App = () => {
             selectedProduct={selectedProduct}
             handleChoicedTags={handleChoicedTags}
             handleAllChoicedTags={handleAllChoicedTags}
+            countProduct={countProduct}
+            setCountProduct={setCountProduct}
+            handleAddCart={handleAddCart}
+          />}
+
+        {currentPage === 'product' &&
+          <Product
+            selectedProduct={selectedProduct}
+            setSelectedProduct={setSelectedProduct}
             countProduct={countProduct}
             setCountProduct={setCountProduct}
             handleAddCart={handleAddCart}
@@ -341,9 +341,9 @@ const App = () => {
             handleConfirmBuy={handleConfirmBuy}
           />}
 
-          {currentPage === 'dami' && 
-            <Dami />
-          }
+        {currentPage === 'dami' &&
+          <Dami />
+        }
       </main>
 
       <Footer

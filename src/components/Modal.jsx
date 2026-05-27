@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 import { IoCloseCircleOutline } from "react-icons/io5";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
-const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct, countProduct, setCountProduct, handleAddCart }) => {
+const Modal = ({ setCurrentPage, handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct, countProduct, setCountProduct, handleAddCart }) => {
   const [currentImg, setCurrentImg] = useState('');
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
         <ul className='modal-item'>
           <li className='item-img'>{currentImg && (<img src={`/products/${currentImg}`} />)}</li>
           <li className='item-img-list'>
-            <Swiper spaceBetween={8} slidesPerView={'auto'}>
+            <Swiper modules={[Pagination]} spaceBetween={8} slidesPerView={'auto'} pagination={{type: 'progressbar'}}>
               {selectedProduct?.src?.map(img => {
                 return (
                   <SwiperSlide key={img}>
@@ -38,7 +39,10 @@ const Modal = ({ handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct,
           </li>
           <li className='item-name'>{selectedProduct?.name}</li>
           <li className='item-price'>¥{selectedProduct?.price.toLocaleString()}<label>(※税抜き)</label></li>
-          <li className='item-ex'>{selectedProduct?.ex}</li>
+          <li className='item-link'><button type="button" onClick={() => {
+            setIsModalOpen(false);
+            setCurrentPage('product');
+          }}>もっと見る</button></li>
         </ul>
 
         <form>

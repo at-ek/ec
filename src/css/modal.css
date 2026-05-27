@@ -60,6 +60,15 @@
   width: 48px;
 }
 
+.modal .swiper-pagination-progressbar {
+  top: auto;
+  bottom: 0;
+}
+
+.modal .swiper-pagination-progressbar-fill {
+  background: rgba(0,0,0,.6);
+}
+
 .modal-item .item-colors {
   display: flex;
   justify-content: center;
@@ -83,9 +92,18 @@
   font-size: .8em;
 }
 
+.modal-item .item-link button {
+  margin: 16px auto 0;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 2.2;
+  color: var(--text);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+}
+
 .modal-card form {
   padding: 16px;
-  background: var(--sub-bg);
+  border-top: 2px solid var(--sub-gray);
 }
 
 .modal-card form .nums {
@@ -102,7 +120,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f6f6f6;
   border: 2px solid var(--text);
 }
 

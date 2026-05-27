@@ -242,6 +242,10 @@ button {
     padding-left: 8px;
   }
 
+  .pc-product-category li:not(:first-of-type) {
+    padding-left: 12px;
+  }
+
   .pc-product-category button {
     font-size: 14px;
     font-style: italic;

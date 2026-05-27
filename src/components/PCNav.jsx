@@ -15,7 +15,7 @@ const PCNav = ({ categorys, selectedTags, handleChoicedTags, handleAllChoicedTag
           {
             selectedTags.length > 0 && (<button type="button" className="reset" onClick={() => handleResetTags()}>Reset</button>)
           }
-          <button type='button' className="icon-containar filter"><IoFilterOutline className='icon' /><label>{selectedTags.length}</label></button>
+          <button type='button' className="icon-containar filter"><IoFilterOutline className='icon' />{selectedTags.length > 0  ? <label>{selectedTags.length}</label> : null}</button>
         </div>
       </div>
 

@@ -61,7 +61,7 @@ const Nav = ({
           <button type='button' className='cart icon-containar' onClick={() => {
             setCurrentPage('cart');
             setToggleNav(false);
-          }}><IoCartOutline className='icon' /><label>{currentCartCount}</label></button>
+          }}><IoCartOutline className='icon' />{currentCartCount && <label>{currentCartCount}</label>}</button>
         </div>
 
         <div className="product-header">
@@ -70,7 +70,7 @@ const Nav = ({
             {
               selectedTags.length > 0 && (<button type="button" className="reset" onClick={() => handleResetTags()}>Reset</button>)
             }
-            <button type='button' className="icon-containar filter"><IoFilterOutline className='icon' /><label>{selectedTags.length}</label></button>
+            <button type='button' className="icon-containar filter"><IoFilterOutline className='icon' />{selectedTags.length > 0  ? <label>{selectedTags.length}</label> : null}</button>
           </div>
         </div>
         <div className='product-menu'>
