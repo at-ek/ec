@@ -7,7 +7,7 @@ const Login = ({loginForm, setLoginForm, handleLogin, setCurrentPage}) => {
       <form className='login-form'>
         <ul>
           <li>
-            <label>ID:</label>
+            <label>ID</label>
             <input 
               type="text" 
               name='aid'
@@ -21,7 +21,7 @@ const Login = ({loginForm, setLoginForm, handleLogin, setCurrentPage}) => {
               />
           </li>
           <li>
-            <label>パスワード:</label>
+            <label>パスワード</label>
             <input 
               type="password" 
               name='pass'

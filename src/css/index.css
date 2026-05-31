@@ -63,6 +63,7 @@ button {
   display: block;
   background: none;
   border: none;
+  cursor: pointer;
 }
 
 /* ボタン */
@@ -77,12 +78,19 @@ button {
 
 .home, .add-cart {
   background: var(--accent);
-  border: 1px solid var(--bg);
+  border: 2px solid var(--bg);
 }
 
 .login, .create {
   color: var(--text);
   background: var(--bg);
+}
+
+.login-form .login,
+.login-form .create,
+.create-form .create {
+  color: var(--bg);
+  background: var(--accent);
 }
 
 .buy, .agree {
@@ -131,7 +139,7 @@ main {
   min-height: 100dvh;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px 40px;
+  padding: 0 40px;
   position: relative;
 }
 
@@ -149,7 +157,7 @@ main {
 .cart-product,
 .cart-confirm,
 .dami-content {
-  margin: 240px auto 80px;
+  margin: 200px auto 80px;
 }
 
 .dami-content h3 {

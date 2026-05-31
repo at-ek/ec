@@ -7,7 +7,7 @@
   margin: 0 auto 16px;
 }
 
-.product-image img {
+.product-image .img-main {
   margin-bottom: 16px;
 }
 
@@ -27,6 +27,7 @@
 
 .product-image .img-list .swiper-slide {
   width: 48px;
+  cursor: pointer;
 }
 
 .product-image .img-list .swiper-slide img {
@@ -38,38 +39,64 @@
   bottom: 0;
 }
 
-.product-image .colors {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.product-image .colors span {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  border: 1px solid #ccc;
-}
-
 .product-explanation {
   max-width: 350px;
   margin: 0 auto 40px;
 }
 
+.product-explanation .product-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
 .product-explanation .product-price {
   margin-bottom: 8px;
+  font-size: 16px;
 }
 
 
 .product form {
   max-width: 350px;
   margin: 24px auto 0;
-  padding: 16px;
+  padding: 24px;
   border-top: 2px solid var(--sub-gray);
 }
 
-.product form .nums {
+.product form .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.product form .product-colors {
+  margin-bottom: 16px;
+}
+
+.product form .product-colors button {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.product form .product-size {
+  margin-bottom: 24px;
+}
+
+.product form .product-size button {
+  width: 24px;
+  height: 32px;
+  color: var(--text);
+}
+
+.product form .error-message {
+  font-size: 12px;
+  color: var(--red);
+  text-align: center;
+}
+
+.product form .product-nums {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +104,7 @@
   margin-bottom: 16px;
 }
 
-.product form .nums label {
+.product form .product-nums label {
   width: 20px;
   font-weight: bold;
   display: flex;
@@ -86,14 +113,14 @@
   border: 2px solid var(--text);
 }
 
-.product form .nums button {
+.product form .product-nums button {
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--text);
 }
 
-.product form .nums .icon {
+.product form .product-nums .icon {
   width: 16px;
   height: 16px;
   font-size: 11px;
@@ -117,6 +144,7 @@
 
 .related-products .swiper-slide {
   width: 80px;
+  cursor: pointer;
 }
 
 .related-products .swiper-pagination-progressbar {
@@ -128,29 +156,38 @@
   .product {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-areas: 
+    "image explanation"
+    "image form"
+    "related related";
+    gap: 80px;
     align-items: start;
   }
 
-  .related-products {
-    grid-column: 1 / -1;
-  }
-
   .product-image {
-    margin: 0;
+    max-width: 500px;
+    grid-area: image;
   }
 
   .product-image .img-list .swiper-slide {
     width: 80px;
   }
 
-  .product-image .colors span {
-    width: 24px;
-    height: 24px;
+  .product-explanation {
+    grid-area: explanation;
+    margin: 0;
   }
 
-  .product-explanation {
+  .product form {
+    grid-area: form;
+    width: 350px;
     margin: 0;
+    border: 2px solid var(--text);
+    border-radius: 8px;
+  }
+
+  .related-products {
+    grid-area: related;
   }
 
   .related-products .swiper-slide {

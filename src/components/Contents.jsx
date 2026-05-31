@@ -14,22 +14,18 @@ const Contents = ({
   selectedProduct,
   handleChoicedTags, 
   handleAllChoicedTags,
-  countProduct, 
-  setCountProduct, 
-  handleAddCart }) => {
+  }) => {
 
   return (
     <>
       {isModalOpen &&
         <Modal
           setCurrentPage={setCurrentPage}
+          handleOpenModal={handleOpenModal}
           handleCloseModal={handleCloseModal}
           isModalOpen={isModalOpen}
           setIsModalOpen={setIsModalOpen}
           selectedProduct={selectedProduct}
-          countProduct={countProduct}
-          setCountProduct={setCountProduct}
-          handleAddCart={handleAddCart}
         />
       }
 

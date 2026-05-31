@@ -5,7 +5,19 @@ import { products } from "../data/products";
 import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 
-const Product = ({ selectedProduct, setSelectedProduct, countProduct, setCountProduct, handleAddCart }) => {
+const Product = ({
+  selectedProduct,
+  setSelectedProduct,
+  colorProduct,
+  setColorProduct,
+  sizeProduct,
+  setSizeProduct,
+  countProduct,
+  setCountProduct,
+  productErrors,
+  setProductErrors,
+  productValidation,
+  handleAddCart }) => {
   const [selectedImg, setSelectedImg] = useState('');
 
   useEffect(() => {
@@ -16,56 +28,86 @@ const Product = ({ selectedProduct, setSelectedProduct, countProduct, setCountPr
 
   return (
     <div className="product">
-      <div className="product-image">
-        <img src={`/products/${selectedImg}`} alt={selectedProduct.name} />
-        <div className="img-list">
+      <ul className="product-image">
+        <li className="img-main"><img src={`/products/${selectedImg}`} alt={selectedProduct.name} /></li>
+        <li className="img-list">
           <Swiper modules={[Pagination]} spaceBetween={8} slidesPerView={'auto'} pagination={{ type: 'progressbar' }}>
             {selectedProduct?.src?.map(img => <SwiperSlide key={img} onClick={() => setSelectedImg(img)}><img src={`/products/${img}`} alt={selectedProduct?.name} /></SwiperSlide>)}
           </Swiper>
-        </div>
-        <div className="colors">
-          {selectedProduct?.colors?.map(color => <span key={color} style={{ background: color }}></span>)}
-        </div>
-      </div>
+        </li>
+      </ul>
 
-      <div className="product-explanation">
-        <h3 className='product-name'>{selectedProduct?.name}</h3>
-        <p className="product-price">¥{selectedProduct?.price.toLocaleString()}(※税抜き)</p>
-        <p className="product-ex">{selectedProduct?.ex}</p>
+      <ul className="product-explanation">
+        <li className='product-name'>{selectedProduct?.name}</li>
+        <li className="product-price">¥{selectedProduct?.price.toLocaleString()}(※税抜き)</li>
+        <li className="product-ex">{selectedProduct?.ex}</li>
+      </ul>
 
-        <form>
-          <div className="nums">
-            <button
-              type="button"
-              className="icon-containar minus"
-              onClick={() => setCountProduct(prev => Math.max(1, prev - 1))}
-            ><FaMinus className="icon" />
-            </button>
-            <label>{countProduct}</label>
-            <button
-              type="button"
-              className="icon-containar plus"
-              onClick={() => setCountProduct(prev => prev + 1)}
-            ><FaPlus className="icon" />
-            </button>
+      <form>
+        <div className="product-colors">
+          <div className="buttons">
+            {selectedProduct?.colors?.map(color => <button className={color === colorProduct ? 'active' : ''} type='button' key={color} value={color} style={{ background: color }} onClick={(e) => {
+              setColorProduct(e.target.value);
+              setProductErrors(prev => ({
+                ...prev,
+                color: ''
+              }))
+            }}></button>)}
           </div>
+
+          <p className='error-message'>{productErrors.color}</p>
+        </div>
+
+        <div className="product-size">
+          <div className="buttons">
+            {selectedProduct?.size?.map(si => <button className={si === sizeProduct ? 'active' : ''} type='button' key={si} value={si} onClick={(e) => {
+              setSizeProduct(e.target.value);
+              setProductErrors(prev => ({
+                ...prev,
+                size: ''
+              }))
+            }}>{si}</button>)}
+          </div>
+
+          <p className='error-message'>{productErrors.size}</p>
+        </div>
+
+        <div className="product-nums">
           <button
-            type='button'
-            className="add-cart btn"
-            onClick={() => {
-              handleAddCart({
-                id: selectedProduct.id,
-                src: selectedProduct.src,
-                name: selectedProduct.name,
-                price: selectedProduct.price,
-                count: countProduct
-              });
-              setIsModalOpen(false);
-            }}
-          >カートに入れる
+            type="button"
+            className="icon-containar minus"
+            onClick={() => setCountProduct(prev => Math.max(1, prev - 1))}
+          ><FaMinus className="icon" />
           </button>
-        </form>
-      </div>
+          <label>{countProduct}</label>
+          <button
+            type="button"
+            className="icon-containar plus"
+            onClick={() => setCountProduct(prev => prev + 1)}
+          ><FaPlus className="icon" />
+          </button>
+        </div>
+        <button
+          type='button'
+          className="add-cart btn"
+          onClick={() => {
+            const isValid = productValidation();
+
+            if (!isValid) return;
+
+            handleAddCart({
+              id: selectedProduct.id,
+              src: selectedProduct.src,
+              name: selectedProduct.name,
+              price: selectedProduct.price,
+              color: colorProduct,
+              size: sizeProduct,
+              count: countProduct
+            });
+          }}
+        >カートに入れる
+        </button>
+      </form>
 
 
 
@@ -86,7 +128,12 @@ const Product = ({ selectedProduct, setSelectedProduct, countProduct, setCountPr
               )
               .map(related => {
                 return (
-                  <SwiperSlide key={related.id} onClick={() => setSelectedProduct(related)}>
+                  <SwiperSlide key={related.id} onClick={() => {
+                    setSelectedProduct(related);
+                    setColorProduct(null);
+                    setSizeProduct(null);
+                    setCountProduct(1);
+                  }}>
                     <img
                       src={`/products/${related.src[0]}`}
                       alt={related.name}

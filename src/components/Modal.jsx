@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
 import { IoCloseCircleOutline } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
 
-const Modal = ({ setCurrentPage, handleCloseModal, isModalOpen, setIsModalOpen, selectedProduct, countProduct, setCountProduct, handleAddCart }) => {
+const Modal = ({ 
+  setCurrentPage, 
+  handleCloseModal, 
+  isModalOpen, 
+  setIsModalOpen, 
+  selectedProduct, 
+  }) => {
   const [currentImg, setCurrentImg] = useState('');
 
   useEffect(() => {
@@ -34,8 +38,11 @@ const Modal = ({ setCurrentPage, handleCloseModal, isModalOpen, setIsModalOpen, 
               })}
             </Swiper>
           </li>
-          <li className="item-colors">
+          <li className='item-colors'>
             {selectedProduct?.colors.map(color => <span key={color} style={{ background: color }}></span>)}
+          </li>
+          <li className='item-size'>
+            {selectedProduct?.size?.map(si => <span key={si}>{si}</span>)}
           </li>
           <li className='item-name'>{selectedProduct?.name}</li>
           <li className='item-price'>¥{selectedProduct?.price.toLocaleString()}<label>(※税抜き)</label></li>
@@ -44,39 +51,6 @@ const Modal = ({ setCurrentPage, handleCloseModal, isModalOpen, setIsModalOpen, 
             setCurrentPage('product');
           }}>もっと見る</button></li>
         </ul>
-
-        <form>
-          <div className="nums">
-            <button
-              type="button"
-              className="icon-containar minus"
-              onClick={() => setCountProduct(prev => Math.max(1, prev - 1))}
-            ><FaMinus className="icon" />
-            </button>
-            <label>{countProduct}</label>
-            <button
-              type="button"
-              className="icon-containar plus"
-              onClick={() => setCountProduct(prev => prev + 1)}
-            ><FaPlus className="icon" />
-            </button>
-          </div>
-          <button
-            type='button'
-            className="add-cart btn"
-            onClick={() => {
-              handleAddCart({
-                id: selectedProduct.id,
-                src: selectedProduct.src,
-                name: selectedProduct.name,
-                price: selectedProduct.price,
-                count: countProduct
-              });
-              setIsModalOpen(false);
-            }}
-          >カートに入れる
-          </button>
-        </form>
       </div>
     </div>
   )

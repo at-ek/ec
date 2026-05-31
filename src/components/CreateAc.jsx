@@ -16,25 +16,27 @@ const handleChangeValue = (e) => {
       <form className='create-form'>
         <ul>
           <li>
-            <label>ID：</label>
+            <label>ID</label>
             <input
               type="text"
               name='aid'
               value={createForm.aid}
               onChange={handleChangeValue} />
+              {errors.aid && <span className='error-message'>{errors.aid}</span>}
           </li>
-          {errors.aid && <li className='error-message'>{errors.aid}</li>}
+          
           <li>
-            <label>パスワード：</label>
+            <label>パスワード</label>
             <input 
               type="password"
               name='pass'
               value={createForm.pass}
               onChange={handleChangeValue} />
+              {errors.pass && <span className='error-message'>{errors.pass}</span>}
           </li>
-          {errors.pass && <li className='error-message'>{errors.pass}</li>}
+          
           <li>
-            <label>パスワード(再)：</label>
+            <label>パスワード(再)</label>
             <input 
               type="password"
               name='confirmPass'
@@ -42,10 +44,10 @@ const handleChangeValue = (e) => {
               onChange={(e) => setCreateForm(prev => ({
                 ...prev,
                 confirmPass: e.target.value
-              }) )}
-             />
+              }) )} />
+          {errors.confirmPass && <span className='error-message'>{errors.confirmPass}</span>}
+
           </li>
-          {errors.confirmPass && <li className='error-message'>{errors.confirmPass}</li>}
           <li><button type='button' className='create btn' onClick={handleSubmit}>アカウント作成</button></li>
         </ul>
       </form>

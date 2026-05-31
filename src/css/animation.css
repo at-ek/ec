@@ -6,7 +6,6 @@
 .hamb.open .icon {
   transform: rotate(360deg);
 }
-
 /* header */
 
 /* nav */
@@ -82,8 +81,25 @@
   opacity: 1;
   pointer-events: auto;
 }
-
 /* modal */
+
+/* product */
+.product .product-colors button {
+  border: 1px solid var(--sub-gray);
+}
+.product .product-colors button.active {
+  border: 2px solid var(--accent);
+}
+
+.product .product-size button {
+  border: 1px solid var(--accent);
+}
+
+.product .product-size button.active {
+  font-weight: bold;
+  border-width: 2px;
+}
+/* product */
 
 /* footer */
 .contact dd,
@@ -128,25 +144,41 @@
   }
 
   .login:hover,
-  .add-cart:hover,
+  .create:hover {
+    background: var(--accent);
+    border: 1px solid var(--bg);
+  }
+
+  .add-cart:hover {
+    color: var(--accent);
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+
   .buy:hover,
   .agree:hover {
     background: var(--hover-yellow);
   }
 
-  .create:hover {
-    background: var(--hover-blue);
-  }
-
   .prev:hover,
   .reset:hover {
-    background: var(--hover-green);
+    background: var(--hover-blue);
   }
 
   .logout:hover {
     background: var(--hover-red);
   }
   /* btn */
+
+  /* header */
+  .account {
+    transition: .5s;
+  }
+
+  .account:hover {
+    opacity: .8;
+  }
+  /* header */
 
   /* nav */
   .cart {
@@ -181,6 +213,15 @@
   }
   /* contents */
 
+  /* product */
+  .related-products .swiper-slide {
+    transition: .25s ease-in;
+  }
+
+  .related-products .swiper-slide:hover {
+    opacity: .8;
+  }
+  /* product */
 
   /* footer */
   footer button {

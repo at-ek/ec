@@ -176,11 +176,14 @@ const App = () => {
   // モーダル
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [colorProduct, setColorProduct] = useState(null);
+  const [sizeProduct, setSizeProduct] = useState(null);
   const [countProduct, setCountProduct] = useState(1);
-
   const handleOpenModal = (item) => {
     setSelectedProduct(item);
     setCountProduct(1);
+    setColorProduct(null);
+    setSizeProduct(null);
     setIsModalOpen(true);
   }
   const handleCloseModal = () => {
@@ -190,22 +193,56 @@ const App = () => {
 
   // カート機能
   const [cart, setCart] = useState([]);
+  const [productErrors, setProductErrors] = useState({
+    color: '',
+    size: ''
+  });
   const [isConfirming, setIsConfirming] = useState(false);
+
+  const productValidation = () => {
+    const errors = {
+      color: '',
+      size: ''
+    }
+
+    if(!colorProduct) {
+      errors.color = '※カラーを選択してください'
+    }
+
+    if(!sizeProduct) {
+      errors.size = '※サイズを選択してください'
+    }
+
+    setProductErrors(errors);
+
+    return !errors.color && !errors.size;
+  } 
+  
   const handleAddCart = (productData) => {
     setCart(prev => {
-      const existItem = prev.find(item => item.id === productData.id);
-
+      const existItem = prev.find(
+        item =>
+          item.id === productData.id &&
+          item.color === productData.color &&
+          item.size === productData.size
+      );
+  
       if (existItem) {
         return prev.map(item =>
-          item.id === productData.id
+          item.id === productData.id &&
+          item.color === productData.color &&
+          item.size === productData.size
             ? { ...item, count: item.count + productData.count }
             : item
-        )
-      } else {
-        return [...prev, productData];
+        );
       }
+  
+      return [...prev, productData];
     });
-  }
+
+    setIsModalOpen(false);
+  };
+
   const handleRemoveProduct = (id) => {
     setCart(prev => prev.filter(item => item.id !== id));
   }
@@ -300,7 +337,11 @@ const App = () => {
             selectedProduct={selectedProduct}
             handleChoicedTags={handleChoicedTags}
             handleAllChoicedTags={handleAllChoicedTags}
+            colorProduct={colorProduct}
+            setColorProduct={setColorProduct}
             countProduct={countProduct}
+            sizeProduct={sizeProduct}
+            setSizeProduct={setSizeProduct}
             setCountProduct={setCountProduct}
             handleAddCart={handleAddCart}
           />}
@@ -309,8 +350,15 @@ const App = () => {
           <Product
             selectedProduct={selectedProduct}
             setSelectedProduct={setSelectedProduct}
+            colorProduct={colorProduct}
+            setColorProduct={setColorProduct}
+            sizeProduct={sizeProduct}
+            setSizeProduct={setSizeProduct}
             countProduct={countProduct}
             setCountProduct={setCountProduct}
+            productErrors={productErrors}
+            setProductErrors={setProductErrors}
+            productValidation={productValidation}
             handleAddCart={handleAddCart}
           />}
 
@@ -333,6 +381,8 @@ const App = () => {
         {currentPage === 'cart' &&
           <Cart
             cart={cart}
+            colorProduct={colorProduct}
+            sizeProduct={sizeProduct}
             handleChangeProductCount={handleChangeProductCount}
             handleRemoveProduct={handleRemoveProduct}
             currentCartAmount={currentCartAmount}

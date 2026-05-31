@@ -2,46 +2,60 @@ import { FaPlus } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa6";
 import { IoTrashOutline } from "react-icons/io5";
 
-const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCartAmount, isConfirming, setIsConfirming, handleConfirmBuy }) => {
+const Cart = ({
+  cart,
+  handleChangeProductCount,
+  handleRemoveProduct,
+  currentCartAmount,
+  isConfirming,
+  setIsConfirming,
+  handleConfirmBuy }) => {
   return (
     <>
       {!isConfirming ? (
         <section className="cart-product">
-          <h3>商品</h3>
-
-          <div className="product-table">
-            <dl>
-              <dt className="name">商品</dt>
-              <dt className="price">金額</dt>
-              <dt className="count">数量</dt>
-            </dl>
-          </div>
+          <h3>カート</h3>
           {cart.map(pro => (
             <ul key={pro.id}>
-              <li className="name">{pro.name}</li>
-              <li className="price">{Math.round(pro.price * 1.1).toLocaleString()}円</li>
-              <li className="count cart-buttons">
-                <button className='minus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'decrease')}>
-                  <FaMinus className="icon" />
-                </button>
+              <li className="name">
+                <label>商品：</label>
+                <span>{pro.name}</span>
+              </li>
+              <li className="color">
+                <label>カラー：</label>
+                <span style={{ background: pro.color }}></span>
+              </li>
+              <li className="size">
+                <label>サイズ：</label>
+                <span>{pro.size}</span>
+              </li>
+              <li className="price">
+                <label>金額：</label>
+                <span>{Math.round(pro.price * 1.1)}円（※税込み）</span>
+              </li>
+              <li className="count">
+                <label>個数：</label>
+                <span>{pro.count}</span>
+                <div className="buttons">
+                  <button className='minus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'decrease')}>
+                    <FaMinus className="icon" />
+                  </button>
 
-                <label>{pro.count}</label>
+                  <button className='plus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'increase')}>
+                    <FaPlus className="icon" />
+                  </button>
 
-                <button className='minus icon-containar' onClick={() => handleChangeProductCount(pro.id, 'increase')}>
-                  <FaPlus className="icon" />
-                </button>
-
-                <button className='trash icon-containar' onClick={() => handleRemoveProduct(pro.id)}>
-                  <IoTrashOutline className="icon" />
-                </button>
+                  <button className='trash icon-containar' onClick={() => handleRemoveProduct(pro.id)}>
+                    <IoTrashOutline className="icon" />
+                  </button>
+                </div>
               </li>
             </ul>
           ))}
 
           <h4>
-            <label>合計金額</label>
-            {currentCartAmount}
-            円
+            <label>合計金額:</label>
+            <span>{currentCartAmount}円</span>
           </h4>
 
           <button className='buy btn' onClick={() => setIsConfirming(true)}>
@@ -51,27 +65,34 @@ const Cart = ({ cart, handleChangeProductCount, handleRemoveProduct, currentCart
       ) : (
         <section className="cart-confirm">
           <h3>購入確認</h3>
-
-          <div className="confirm-table">
-            <dl>
-              <dt className="name">商品</dt>
-              <dt className="price">金額</dt>
-              <dt className="count">数量</dt>
-            </dl>
-          </div>
-
           {cart.map(item => (
             <ul key={item.id}>
-              <li className="name">{item.name}</li>
-              <li className="price">{Math.round(item.price * 1.1).toLocaleString()}</li>
-              <li className="count">× {item.count}</li>
+              <li className="name">
+                <label>商品：</label>
+                <span>{item.name}</span>
+              </li>
+              <li className="color">
+                <label>カラー：</label>
+                <span style={{ background: item.color }}></span>
+              </li>
+              <li className="size">
+                <label>サイズ：</label>
+                <span>{item.size}</span>
+              </li>
+              <li className="price">
+                <label>金額：</label>
+                <span>{Math.round(item.price * 1.1)}円（※税込み）</span>
+              </li>
+              <li className="count">
+                <label>個数：</label>
+                <span>{item.count}</span>
+              </li>
             </ul>
           ))}
 
           <h4>
-            <label>合計金額</label>
-            {currentCartAmount}
-            円
+            <label>合計金額:</label>
+            <span>{currentCartAmount}円</span>
           </h4>
 
           <div className="buttons">
